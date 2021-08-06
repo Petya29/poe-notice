@@ -18,6 +18,7 @@ async function createWindow() {
     minWidth: 600,
     minHeight: 500,
     autoHideMenuBar: true,
+    alwaysOnTop: true,
     backgroundColor: '#2B2B2B',
     webPreferences: {
       
