@@ -1,14 +1,14 @@
 <template>
-  <HelloWorld />
+  <Main />
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Main from './views/Main'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    Main
   },
   beforeCreate() {
     document.title = 'Poe-Notice'
@@ -17,8 +17,9 @@ export default {
 </script>
 
 <style>
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700");
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-family: 'OpenSans', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
