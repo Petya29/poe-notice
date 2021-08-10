@@ -20,6 +20,7 @@ async function createWindow() {
     autoHideMenuBar: true,
     alwaysOnTop: true,
     backgroundColor: '#2B2B2B',
+    icon: 'public/logo.ico',
     webPreferences: {
       
       // Use pluginOptions.nodeIntegration, leave this alone
