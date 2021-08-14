@@ -1,13 +1,18 @@
 <template>
+  <!-- <video autoplay muted loop class="bg-video">
+    <source src="../assets/videos/ulya.mp4" type="video/mp4" />
+  </video> -->
+  <div class="bg-wrap"></div>
   <div class="container">
-    <div class="auth" v-if="!$store.state.chat_id">
-      <h4>
+    <div class="auth">
+      <h4 class="card">
+              <router-link to="settings">link</router-link>
         Please join to our Telegram bot, who be sent your trade messages to you.
         <span class="bot-link" @click="openBrowser('https://t.me/POEnot_bot')"
           >https://t.me/POEnot_bot</span
         >
-        Enter your chat id
       </h4>
+      <h4 class="card chat-id-title">Enter your chat id</h4>
       <div class="row chat-id">
         <div
           :class="[
@@ -50,15 +55,15 @@ import readLastLines from "read-last-lines";
 import ScaleLoader from "vue-spinner/src/ScaleLoader.vue";
 
 export default {
-  name: "HelloWorld",
+  name: "Main",
   setup() {
     const validateError = ref(false);
     const loading = ref(false);
     const newChatId = ref("");
     const chatId = "123";
     const url = `${process.env.VUE_APP_TELEGRAM_API}sendMessage?chat_id=${chatId}&text=`;
-    const LogFile = process.env.VUE_APP_LOG_PATH;
-    fs.watchFile(LogFile, { interval: 500 }, () => {
+    const LogFile = process.env.VUE_APP_LOG_PATH; //TODO Launcher + Steam log path
+    fs.watchFile(LogFile, { interval: 450 }, () => {
       readLastLines.read(LogFile, 1).then((lines) => {
         axios.post((url + lines).trim());
         console.log(typeof lines);
@@ -126,6 +131,24 @@ export default {
 </script>
 
 <style scoped>
+* {
+  font-family: "BenguiatStd";
+}
+.bg-video {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
+}
+.bg-wrap {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
+  background-color: rgba(0, 0, 0, 0.6) !important;
+}
 .auth {
   padding: 0 50px;
 }
@@ -152,5 +175,13 @@ export default {
 }
 .input-field-error label {
   color: rgb(238, 75, 75) !important;
+}
+.card {
+  padding: 15px 20px 5px 20px;
+  border-radius: 10px;
+  background-color: #252525;
+}
+.chat-id-title {
+  padding: 15px 10px;
 }
 </style>

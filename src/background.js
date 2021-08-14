@@ -15,11 +15,12 @@ async function createWindow() {
   const win = new BrowserWindow({
     width: 900,
     height: 600,
-    minWidth: 600,
-    minHeight: 500,
+    minWidth: 900,
+    minHeight: 600,
+    maxWidth: 900,
+    maxHeight: 600,
     autoHideMenuBar: true,
     alwaysOnTop: true,
-    backgroundColor: '#2B2B2B',
     icon: 'public/logo.ico',
     webPreferences: {
       
